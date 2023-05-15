@@ -1,5 +1,5 @@
 from unittest import TestCase
-from conexao import *
+from TestBdProvaGQS.conexao import *
 
 import sys
 sys.path.insert(0, '.')
@@ -19,7 +19,7 @@ class MockBD(TestCase):
 
         query_create_Professor = """CREATE TABLE Professor (
                                   id int NOT NULL PRIMARY KEY ,
-                                  nome text NOT NULL,
+                                  nome text NOT NULL
                                 )"""
         query_create_Aluno = """CREATE TABLE Aluno (
                                   id int NOT NULL PRIMARY KEY ,
@@ -30,8 +30,8 @@ class MockBD(TestCase):
                                   nome text NOT NULL,
                                   codigo text NOT NULL
                                 )"""
-        query_create_Media_aluno_turma = """CREATE TABLE Media_aluno_turma (
-                                  id int NOT NULL PRIMARY KEY ,
+        query_create_Media_aluno_turma = """CREATE TABLE Media_turma_aluno (
+                                  id int NOT NULL PRIMARY KEY,
                                   id_turma int,
                                   id_aluno int,
                                   nota1 float,
@@ -39,8 +39,8 @@ class MockBD(TestCase):
                                   nota3 float,
                                   media float,
                                   
-                                  FOREING KEY (id_turma) REFERENCES Turma(id),
-                                  FOREING KEY (id_aluno) REFERENCES Aluno(id)
+                                  FOREIGN KEY (id_turma) REFERENCES Turma(id),
+                                  FOREIGN KEY (id_aluno) REFERENCES Aluno(id)
                                  
                                 )"""
         try:
@@ -81,11 +81,11 @@ class MockBD(TestCase):
                                     (3, 3, 3, 9.0, 9.0, 9.0, 9.0),
                                     (4, 3, 4, 10, 10, 10, 10),
                                     (5, 3, 5, 10, 10, 10, 10),
-                                    (6, 1, 1, 7, 7, 7, 7)
+                                    (6, 1, 1, 7, 7, 7, 7),
                                     (7, 2, 1, 5, 5, 5, 5),
                                     (8, 2, 3, 0, 0, 0, 0),
                                     (9, 1, 4, 8, 8, 8, 8),
-                                    (10,2, 5, 8, 8, 8, 8),
+                                    (10,2, 5, 8, 8, 8, 8)
                                     """
         # aluno 6 nao esta em nem uma turma e turma 4 nao tem nem um aluno 
         try:
