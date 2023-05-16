@@ -1,7 +1,8 @@
-from TestBdProvaGQS.conexao import *
+from conexao import *
 
 
 def ler_Alunos_Turma(bd, id_Turma):
+    # Pegar Alunos de uma turma atraves do codigo da turma
     query = "SELECT a.nome " \
             "FROM Aluno a, Media_turma_aluno m, Turma t " \
             "WHERE m.id_aluno = a.id AND " \

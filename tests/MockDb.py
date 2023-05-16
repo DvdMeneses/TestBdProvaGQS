@@ -1,5 +1,5 @@
 from unittest import TestCase
-from TestBdProvaGQS.conexao import *
+from conexao import *
 
 import sys
 sys.path.insert(0, '.')
@@ -30,7 +30,7 @@ class MockBD(TestCase):
                                   nome text NOT NULL,
                                   codigo text NOT NULL
                                 )"""
-        query_create_Media_aluno_turma = """CREATE TABLE Media_turma_aluno (
+        query_create_Media_turma_aluno = """CREATE TABLE Media_turma_aluno (
                                   id int NOT NULL PRIMARY KEY,
                                   id_turma int,
                                   id_aluno int,
@@ -47,7 +47,7 @@ class MockBD(TestCase):
             cursor.execute(query_create_Professor)
             cursor.execute(query_create_Aluno)
             cursor.execute(query_create_Turma)
-            cursor.execute(query_create_Media_aluno_turma)
+            cursor.execute(query_create_Media_turma_aluno)
             con.commit()
         except sqlite3.Error as error:
             print("Erro na criação das tabelas:", error)
@@ -75,7 +75,7 @@ class MockBD(TestCase):
                                     (4, 2023.1, 'TAD0204')
                                     """
 
-        query_insert_Media_aluno_turma = """INSERT INTO Media_aluno_turma (id, id_turma, id_aluno, nota1, nota2, nota3, media) VALUES
+        query_insert_Media_turma_aluno = """INSERT INTO Media_turma_aluno (id, id_turma, id_aluno, nota1, nota2, nota3, media) VALUES
                                     (1, 3, 1, 10, 10, 10, 10),
                                     (2, 3, 2, 9.5, 9.5, 9.5, 9.5),
                                     (3, 3, 3, 9.0, 9.0, 9.0, 9.0),
@@ -92,7 +92,7 @@ class MockBD(TestCase):
             cursor.execute(query_insert_Professor)
             cursor.execute(query_insert_Aluno)
             cursor.execute(query_insert_Turma)
-            cursor.execute(query_insert_Media_aluno_turma)
+            cursor.execute(query_insert_Media_turma_aluno)
             con.commit()
         except sqlite3.Error as error:
             print("Erro na inserção de dados:", error)
@@ -118,7 +118,7 @@ class MockBD(TestCase):
             cursor.execute("DROP TABLE Professor")
             cursor.execute("DROP TABLE Aluno")
             cursor.execute("DROP TABLE Turma")
-            cursor.execute("DROP TABLE Media_aluno_turma")
+            cursor.execute("DROP TABLE Media_turma_aluno")
             con.commit()
             cursor.close()
             print("Removeu os dados das tabelas.")
