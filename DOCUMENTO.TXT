@@ -1,0 +1,25 @@
+QUESTÕES DE BANCO
+QUESTÃO 1
+Fizemos a questão 1 de banco por que sabiamos que no codigo da função precisaria do MAX. Portanto
+a nossa função procura todas as notas daquele curso e retorna so maior media, mesmo que a media
+maior se repita ele retornarar so uma media. Caso nao tenha niguem cursando o curso passado como
+parametro ele retornará None
+QUESTÃO 3
+Fizemos a questão 3 utilizando o COUNT no banco que ao passar o nome do aluno ele
+retornarar a soma de cursos que aquele Aluno fez. Caso nao tenha cursado nada ele retornará 0
+QUESTÃO 4
+Fizemos a questao 4 utilizando o DISTINCT para que caso algum aluno da mesma turma tenha
+tirado a nota maior que 9 essa turma nao se repita. Então se CArla e Danilo tirar nota maior que 9 e
+estiverem no curso TAD0204, não aparecerá suas vezes aquela mesma turma
+QUESTÕES DE TESTES UNITARIOS
+QUESTÃO 1
+Fizemos a questão 1 testando se a maior nota se repete caso se repita fizemos uma função para
+retornar um array de alunos ou se houver uma unica nota maior que nao se repita ele so retorna o
+nome daquele aluno especifico
+QUESTÃO 2
+Fizemos a questão 2 verificando algumas situações possiveis. Caso nao tenha nenhuma nota
+abaixo de 7 ele so verifica se o Aluno cursou todos os curso, caso tenha cursado ele nao retorna nada.
+Verificamos tambem se reprovou em tudo mas pagou todas as disciplinas.
+QUESTÃO 3
+Fizemos a questão 3 Recebomos uma lista de medias da turma. Por professor fizemos uma
+media geral e verificamos os professores que possuem alunos com notas baixas
